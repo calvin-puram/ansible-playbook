@@ -5,16 +5,9 @@
     state: present
 
 - name: Create a directory if it does not exist
-  file:
-    path: /etc/some_directory
-    state: directory
-    mode: "0755"
-
-- name: Download and extract github runner
   become: yes
   become_user: runner
-  unarchive:
-    remote_src: yes
-    src: https://github.com/actions/runner/releases/download/v2.282.1/actions-runner-linux-x64-2.282.1.tar.gz
-    dest: /home/runner
+  file:
+    path: /etc/some
+    state: directory
     mode: "0755"
