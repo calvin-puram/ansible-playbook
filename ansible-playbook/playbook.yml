@@ -1,0 +1,8 @@
+---
+- name: Basic configuration for all servers
+  hosts: local
+  gather_facts: no
+  connection: local
+
+  roles:
+    - aws_vpc
