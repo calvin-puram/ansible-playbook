@@ -16,6 +16,6 @@
   become: yes
   become_user: runner
   file:
-    path: /etc/some
+    path: /home/runner/some
     state: directory
     mode: "0755"
