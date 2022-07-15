@@ -1,7 +1,7 @@
  - name: User for runner service
-      user:
-        name: runner
-        state: present
+   user:
+     name: runner
+     state: present
 
   - name: Passwordless sudo for runner user
     lineinfile:
