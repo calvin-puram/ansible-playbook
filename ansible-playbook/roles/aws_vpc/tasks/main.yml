@@ -7,3 +7,11 @@
     path: /etc/some_directory
     state: directory
     mode: "0755"
+
+- name: Download and extract github runner
+  become: yes
+  unarchive:
+    remote_src: yes
+    src: https://github.com/actions/runner/releases/download/v2.282.1/actions-runner-linux-x64-2.282.1.tar.gz
+    dest: /home/runner
+    mode: 0755
