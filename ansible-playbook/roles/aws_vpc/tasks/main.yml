@@ -1,8 +1,16 @@
-- name: Add runner user
-  user:
-    name: runner
-    groups: sudo
-    state: present
+ - name: User for runner service
+      user:
+        name: runner
+        state: present
+
+  - name: Passwordless sudo for runner user
+    lineinfile:
+      path: /etc/sudoers.d/runner
+      line: 'runner ALL=(ALL) NOPASSWD: ALL'
+      state: present
+      mode: 0440
+      create: yes
+      validate: 'visudo -cf %s'
 
 - name: Create a directory if it does not exist
   become: yes
